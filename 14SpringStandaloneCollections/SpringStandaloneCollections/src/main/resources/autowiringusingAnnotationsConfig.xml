@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+>
+
+<context:annotation-config></context:annotation-config>
+<bean  class="com.springcore.autowire.annotation.Employee" name="employeeBean" >
+<property name="empID" value="27170" ></property>
+<property name="empName" value="Muhammad Umar Tariq" ></property>
+<!-- <property  name="empAddress" ref = "addressConstructorAutowireBean"  ></property>-->
+
+<!--  <property  name="empQualification" ref = "QualificationConstructorAutowireBean"></property>-->
+
+
+<!-- property means setter will be called -->
+</bean>
+
+
+
+
+
+<bean id = "addressConstructorAutowireBean" class = "com.springcore.autowire.annotation.Address">
+<!-- <property name="street" value="STREET ADDRESS CLASS, GETTER"></property>
+<property name="city" value="CITY ADDRESS CLASS , GETTER"></property> -->
+</bean>
+
+<bean id = "QualificationConstructorAutowireBean" class = "com.springcore.autowire.annotation.Qualification">
+<!--<property name="qualificationID" value="Qualification id CLASS, GETTER"></property>
+<property name="qualificationName" value="Qualification name CLASS , GETTER"></property>-->
+</bean>
+
+</beans>

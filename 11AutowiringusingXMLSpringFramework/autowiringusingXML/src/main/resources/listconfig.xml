@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+>
+<bean name = "emp1" class="com.springcore.collections.Emp">
+<property name="name" value="umartariq">
+</property>
+
+<property name="phones">
+<list>
+<value>03318302835</value>
+<value>03318302835</value><!-- duplicates are allowed in a list-->
+<value>03318302836</value>
+<value>03318302837</value>
+<value>03318302838</value>
+<!-- to insert null in a list use <null/> tag -->
+</list>
+</property>
+
+<!--
+<property name="phones">
+<value>03318302835</value>  spring will automatically detect that this is a list with 1 element 
+</property>
+-->
+<property name="addresses">
+<set>
+<value>Karachi</value>
+<value>Karachi</value><!-- duplicates are NOT ALLOWED in a SET-->
+<value>Lahore</value>
+<value>Islamabad</value>
+<value>Murree</value>
+<value>Faisalabad</value>
+</set>
+</property>
+
+
+<property name="courses">
+<map>
+<entry key="Java" value="2 months"></entry>
+<entry key="C#" value="1 months"></entry>
+<entry key="Python" value="3 months"></entry>
+<entry key="Oracle" value="5 months"></entry>
+<entry key="C++" value="10 months"></entry>
+</map>
+
+
+</property>
+
+<!--  <property name="props">
+<props>
+<prop key="name">muhammad umar tariq</prop>
+<prop key="designation">associate software engineer</prop>
+</props>
+</property>
+-->
+</bean>
+
+
+</beans>

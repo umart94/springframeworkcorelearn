@@ -1,0 +1,44 @@
+autowired is an implementation of dependency injection
+
+when using property ( setter injection) if you remove the property from xml
+and use autowired annotation it will work
+
+however if you remove both property and autowired annotation it will give null pointer exception
+
+consider following case : 
+
+<context:annotation-config></context:annotation-config>
+<bean  class="com.springcore.autowire.annotation.Employee" name="employeeBean" >
+<property name="empID" value="27170" ></property>
+<property name="empName" value="Muhammad Umar Tariq" ></property>
+<!-- <property  name="empAddress" ref = "addressConstructorAutowireBean"  ></property>-->
+
+<property  name="empQualification" ref = "QualificationConstructorAutowireBean"></property>
+
+
+
+</bean>
+
+i commented 
+
+<property  name="empAddress" ref = "addressConstructorAutowireBean"  ></property>
+
+
+and also removed Autowired annotation from com.springcore.autowire.annotation.Employee class everywhere
+
+i get null pointer exception now
+
+so in short
+either use autowired or dependency injection but not both.
+
+
+<!-- property means setter will be called -->
+
+ho ye raha hai ke property tag jab bhi lagaya hai , wo default value dedega us property ko using class member setter
+uske baad aggar autowire ko test karna hai to property ko bhi hatana hoga
+
+tab jakay null value ayegi
+is liay ke constructor me koi default value set nahi hai
+constructor me default values set hoti hain.
+aur hum constructor bhi call nahi kar rahe is liay null values hain sari fields men
+

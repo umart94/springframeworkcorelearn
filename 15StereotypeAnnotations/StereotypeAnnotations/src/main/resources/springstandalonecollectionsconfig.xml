@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+xmlns:context="http://www.springframework.org/schema/context"
+>
+
+
+<!-- we need list outside the bean, because we can then use the list object anywhere inside any bean -->
+<util:list list-class="java.util.LinkedList" id="mybestfriends" value-type="java.lang.String">
+<value>Bilal</value>
+<value>Sameer Wahaj</value>
+<value>Rizwan Nadeem Mufti</value>
+</util:list>
+
+
+<util:list list-class="java.util.LinkedList" id="person2bestfriends" value-type="java.lang.String">
+<value>Tariq</value>
+<value>Talha</value>
+<value>Arsalan</value>
+</util:list>
+
+
+<util:map map-class="java.util.HashMap" id="feeStructureMap">
+<entry key="Spring Framework" value="8000"></entry>
+<entry key="Java EE" value="5000"></entry>
+<entry key="Hibernate" value="2000"></entry>
+</util:map>
+
+
+
+<util:properties id="databaseConfig">
+<prop key="driver">com.mysql.jdbc.Driver</prop>
+<prop key="username">umartariq</prop>
+<prop key="password">umartariq</prop>
+<prop key="url">mysql:jdbc://localhost:3306/database</prop>
+</util:properties>
+
+
+
+
+
+
+
+
+
+<bean class="com.springcore.standalone.collections.Person" name="person1">
+<property name="friends">
+<ref bean="mybestfriends"/>
+
+</property>
+
+<property name="feeStructure">
+<ref bean="feeStructureMap"/>
+
+</property>
+
+<property name="properties">
+<ref bean="databaseConfig"/>
+</property>
+</bean>
+
+
+<bean class="com.springcore.standalone.collections.Person" name="person2">
+<property name="friends">
+<ref bean="person2bestfriends"/>
+</property>
+</bean>
+
+
+<bean class="com.springcore.standalone.collections.Person" name="person3">
+<property name="friends">
+<ref bean="person2bestfriends"/>
+</property>
+</bean>
+
+
+
+
+
+
+
+</beans>

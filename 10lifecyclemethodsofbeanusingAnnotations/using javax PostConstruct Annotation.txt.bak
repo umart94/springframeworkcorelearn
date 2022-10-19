@@ -1,0 +1,28 @@
+PostConstruct Annotation belongs to Java EE
+it is in jDK 1.8
+
+after java 9+ we need to add following dependency to make it work : 
+
+<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+</dependency>
+
+
+and also inside configuration xml file we need to add :
+
+
+<context:annotation-config></context:annotation-config>
+
+
+after beans tag
+
+The <context:annotation-config> annotation is mainly used to activate the dependency injection annotations. @Autowired, @Qualifier, @PostConstruct, @PreDestroy, and @Resource are some of the ones that <context:annotation-config> can resolve.
+
+<context:annotation-config></context:annotation-config> 
+
+this will enable all annotations inside spring
+
+if we want to enable only a few then we need to : 
+

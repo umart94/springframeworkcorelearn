@@ -1,0 +1,6 @@
+feature of spring framework in which spring container injects dependencies automatically
+
+autowiring can't be used to inject primitive and string values it works with
+reference variables only.
+
+It's because Autowiring is just an alternative for referencing your existing beans in ApplicationContext. It expects a bean or a class, primitive is not a class and it differs from Object. Which is why you can't Autowire primitive types

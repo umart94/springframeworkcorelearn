@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+>
+
+
+<!-- employee class me jo address field ka name hai wohi rakhna hoga if autowire type is byName -->
+<!-- <bean  class="com.springcore.autowire.Address" name="empAddress" >
+
+<property name="street" value="Shahrah-e-Faisal"></property>
+<property name="city" value="Karachi"></property>
+</bean>
+
+<bean  class="com.springcore.autowire.Address" name="empAddress2" >
+
+<property name="street" value="Temp Street 0"></property>
+<property name="city" value="Islamabad"></property>
+</bean>-->
+
+
+
+<bean  class="com.springcore.autowire.Employee" name="employeeBean" autowire="constructor" >
+<constructor-arg name="empID" value="27170" index="0"></constructor-arg>
+<constructor-arg name="empName" value="Muhammad Umar Tariq" index="1"></constructor-arg>
+<constructor-arg  name="empAddress" ref = "addressConstructorAutowireBean" index="2" />
+
+
+<!--  <bean  class="com.springcore.autowire.Employee" name="employeeBean" autowire="byType" >-->
+<!--  <bean  class="com.springcore.autowire.Employee" name="employeeBean" autowire="constructor" >-->
+
+</bean>
+
+
+
+
+
+<bean id = "addressConstructorAutowireBean" class = "com.springcore.autowire.Address">
+<property name="street" value="AUTOWIRE CONSTRUCTOR STREET ADDRESS CLASS, GETTER"></property>
+<property name="city" value="AUTOWIRE CONSTRUCTOR CITY ADDRESS CLASS , GETTER"></property>
+</bean>
+
+</beans>

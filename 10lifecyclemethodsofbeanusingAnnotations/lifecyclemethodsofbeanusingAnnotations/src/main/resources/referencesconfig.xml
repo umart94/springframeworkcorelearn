@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+>
+
+<!-- note that we designed code such that A is Dependent on B
+so that A has a reference of B object.
+
+since A is dependent on B , B needs to be created
+before A.
+ -->
+ <bean class="com.springcore.references.A" name="referenceOfObjectA">
+<property name="x" value="4"></property>
+<property name="ob">
+<ref bean="referenceOfObjectB"></ref>
+</property>
+</bean>
+
+<!-- another way of instantiating A class bean using p schema
+<bean class="com.springcore.references.A" name="referenceOfObjectA" p:x="33" p:ob-ref="referenceOfObjectB">
+</bean>
+ -->
+<bean class="com.springcore.references.B" name="referenceOfObjectB">
+<property name="y" value="6"></property>
+</bean>
+
+
+
+ 
+
+
+</beans>

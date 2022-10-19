@@ -1,0 +1,4 @@
+feature of spring framework in which spring container injects dependencies automatically
+
+autowiring can't be used to inject primitive and string values it works with
+reference variables only.
